@@ -1,0 +1,2905 @@
+<html>
+
+<head lang="en">
+    <link rel="preconnect" href="//maxcdn.bootstrapcdn.com" />
+    <link rel="preconnect" href="//fonts.googleapis.com" />
+    <link rel="preconnect" href="//ajax.googleapis.com" />
+    <link rel="preconnect" href="//apis.google.com" />
+    <link rel="preconnect" href="//pixhost.icu" />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>HTML, CSS, Javascript / AvaxHome</title>
+
+    <meta name="keywords" content="" />
+    <meta name="description" content="eBooks &amp; eLearning :: Development / Programming :: HTML, CSS, Javascript at AvaxHome" />
+    <meta name="msapplication-config" content="none" />
+
+    <link rel="icon" type="image/png" href="https://avxhm.se/media/favicon.png" />
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" type="text/css" media="all" onload="if(media!='all')media='all'" />
+
+    <link rel="stylesheet" href="/media/css/main.css?5" media="all" onload="if(media!='all')media='all'" />
+
+    <link href="/ebooks/programming_development/html_css_js_javascript/rss.xml" rel="alternate" title="AvaxHome :: eBooks &amp; eLearning :: Development / Programming :: HTML, CSS, Javascript" type="application/rss+xml" />
+
+    <script type="text/javascript" async="" src="https://mc.yandex.ru/metrika/watch.js"></script>
+    <script async="" src="//www.google-analytics.com/analytics.js"></script>
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "url": "http://avxhm.se/",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "http://avxhm.se/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
+        }
+    </script>
+
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i["GoogleAnalyticsObject"] = r;
+            (i[r] =
+                i[r] ||
+                function() {
+                    (i[r].q = i[r].q || []).push(arguments);
+                }),
+            (i[r].l = 1 * new Date());
+            (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m);
+        })(
+            window,
+            document,
+            "script",
+            "//www.google-analytics.com/analytics.js",
+            "ga"
+        );
+        ga("create", "UA-114500427-13", "auto");
+        ga("send", "pageview");
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            if ($("#left2").length) {
+                $("#left2").affix({
+                    offset: {
+                        top: $("#left2").offset().top + 140
+                    }
+                });
+            }
+            captcha_check_loaded();
+            $(".dropdown-toggle").dropdown();
+        });
+
+        function log_click(title, domain) {
+            title = decodeURIComponent(title);
+            domain = decodeURIComponent(domain);
+            ga("send", "event", "download", domain, title);
+        }
+
+        function captcha_check_loaded() {
+            if ($("#captcha_loader")[0]) {
+                if (!window.coinhive_check_count) {
+                    window.coinhive_check_count = 0;
+                }
+
+                if (window.CoinHive) {
+                    $("#captcha_loader").hide();
+                } else {
+                    if (window.coinhive_check_count < 50) {
+                        window.coinhive_check_count++;
+                        setTimeout(captcha_check_loaded, 200);
+                    }
+                }
+            }
+        }
+
+        var facet = {
+            language: null,
+            tags: [],
+            url: "/ebooks"
+        };
+
+        function facet_change(entity, value) {
+            if (entity == "language") {
+                facet.language = value;
+            }
+
+            if (entity == "tag") {
+                if (!facet.tags) {
+                    facet.tags = [];
+                }
+
+                if (value.checked) {
+                    facet.tags.push(value.value);
+                } else {
+                    facet.tags = facet.tags.filter(tag => tag != value.value);
+                }
+            }
+
+            if (facet.url) {
+                var url = facet.url;
+                if (facet.language || (facet.tags && facet.tags.length)) {
+                    url = url + "/facet/";
+                    if (facet.language) {
+                        var url = url + "language=" + encodeURI(facet.language) + "/";
+                    }
+
+                    if (facet.tags.length) {
+                        facet.tags.sort();
+                        var url = url + facet.tags.map(encodeURI).join("/") + "/";
+                    }
+                }
+
+                //console.log("Navigating to: " + url);
+                document.location.href = url;
+            }
+        }
+    </script>
+
+    <meta property="og:title" content="AvaxHome" />
+    <meta property="og:site_name" content="AvaxHome" />
+    <meta property="og:description" content="AvaxHome — Your End Place" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="http://avxhm.se/" />
+</head>
+
+<body>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close"></div>
+                <div class="modal-body">
+                    <form class="login" action="/login/" method="post">
+                        <input type="hidden" name="next" value="/ebooks/programming_development/html_css_js_javascript" />
+                        <input type="hidden" name="csrfmiddlewaretoken" value="3HZkk7mMGnSTEFKH26pyndKB8opdxtv4" />
+
+                        <div class="form-group">
+                            <label for="login3">Username</label>
+                            <input type="text" class="form-control" id="login" name="login" placeholder="your login" required="" />
+                        </div>
+                        <div class="form-group">
+                            <label for="password3">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="your password" required="" />
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                                <button type="submit" class="btn btn-default">Sign in</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row visible-xs visible-sm">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+                        <a class="navbar-brand" href="/">AvaxHome</a>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span
+                  ></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="active" href="/ebooks"><span>eBooks &amp; eLearning</span></a
+                      >
+                    </li>
+
+                    <li>
+                      <a href="/music"><span>Music</span></a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/video"><span>Video</span></a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/tvseries"><span><b>TV Series</b></span></a
+                      >
+                    </li>
+
+                    <li>
+                      <a href="/magazines"><span>Magazines</span></a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/software"><span>Software</span></a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/comics"><span>Comics</span></a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/newspapers"><span>Newspapers</span></a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/games"><span>Games</span></a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/graphics"><span>Graphics</span></a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/girls"><span><b>Girls</b></span></a
+                      >
+                    </li>
+
+                    <li>
+                      <a href="/hraphile"><span>Vinyl &amp; HR</span></a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/audiobooks"><span><b>Audiobooks</b></span></a
+                      >
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="dropdown">
+                  <a
+                    href="#"
+                    class="dropdown-toggle"
+                    data-toggle="dropdown"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    >User <span class="caret"></span
+                  ></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="/login/">Sign in</a></li>
+                                            <li><a href="/registration/">Sign up</a></li>
+                                            <li><a href="/user/password_reset/">Reset password</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container-fluid -->
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-3 visible-lg visible-md left-block" id="left2parent">
+                <div class="col-lg-12">
+                    <form class="login" action="/login/" method="post">
+                        <input type="hidden" name="next" value="/ebooks/programming_development/html_css_js_javascript" />
+                        <input type="hidden" name="csrfmiddlewaretoken" value="3HZkk7mMGnSTEFKH26pyndKB8opdxtv4" />
+
+                        <div class="form-group">
+                            <label for="login3">Username</label>
+                            <input type="text" class="form-control" id="login" name="login" placeholder="your login" required="" />
+                        </div>
+                        <div class="form-group">
+                            <label for="password3">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="your password" required="" />
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                                <button type="submit" class="btn btn-default">Sign in</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-12 login">
+                    <a href="/registration/">Sign up</a>
+                    <a href="/user/password_reset/">Reset password</a>
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="subcategories-button subcategories-open">
+                        <span>Subcategories</span>
+                    </div>
+                    <div class="subcategories">
+                        <ul>
+                            <li>
+                                <a href="/ebooks/eLearning">eLearning [VIDEO] </a>
+                            </li>
+
+                            <li class="dropdown open">
+                                <a>Language </a>
+                            </li>
+
+                            <ul class="collapsed" style="display: none">
+                                <li>
+                                    <a href="/ebooks/language/english">Lang: English </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/language/russian">Lang: Russian </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/language/spanish">Lang: Spanish </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/language/german">Lang: German </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/language/french">Lang: French </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/language/italian">Lang: Italian </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/language/polish">Lang: Polish </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/language/Chinese">Lang: Chinese </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/language/turkish">Lang: Turkish </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/language/japanese">Lang: Japanese </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/language/others">Lang: Others </a>
+                                </li>
+                            </ul>
+
+                            <li class="dropdown open">
+                                <a>Skill Level </a>
+                            </li>
+
+                            <ul class="collapsed" style="display: none">
+                                <li>
+                                    <a href="/ebooks/level/children">Children / Kids </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/level/newbies_beginners">Beginners, Newbies
+                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/level/skillful_professional">Skillful / Professionals
+                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/level/academic">Academic </a>
+                                </li>
+                            </ul>
+
+                            <li class="dropdown open">
+                                <a href="/ebooks/Mobile_eBooks_Readers">Mobile eBooks Readers
+                  </a>
+                            </li>
+
+                            <ul class="collapsed" style="display: none">
+                                <li>
+                                    <a href="/ebooks/Mobile_eBooks_Readers/ipad_iphone_epub">iPad / iPhone (ePub)
+                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/Mobile_eBooks_Readers/kindle_azw3">Kindle - AZW3
+                    </a>
+                                </li>
+                            </ul>
+
+                            <li>
+                                <a href="/ebooks/animals">Animals related </a>
+                            </li>
+
+                            <li>
+                                <a href="/ebooks/architecture">Architecture </a>
+                            </li>
+
+                            <li>
+                                <a href="/ebooks/artbook">Artbooks </a>
+                            </li>
+
+                            <li>
+                                <a href="/ebooks/audiobook">Audiobooks </a>
+                            </li>
+
+                            <li>
+                                <a href="/ebooks/biography">Biographies </a>
+                            </li>
+
+                            <li>
+                                <a href="/ebooks/business_job">Business, Job </a>
+                            </li>
+
+                            <li>
+                                <a href="/ebooks/cooking_diets">Cooking and Diets </a>
+                            </li>
+
+                            <li>
+                                <a href="/ebooks/cultures_languages">Cultures / Languages </a>
+                            </li>
+
+                            <li class="dropdown open">
+                                <a style="font-weight: bold" href="/ebooks/programming_development">Development / Programming
+                  </a>
+                            </li>
+
+                            <ul class="collapsed">
+                                <li class="dropdown open">
+                                    <a href="/ebooks/programming_development/general">General
+                    </a>
+                                </li>
+
+                                <ul class="collapsed" style="display: none">
+                                    <li>
+                                        <a href="/ebooks/programming_development/general/algorithms_patterns">Algorithms and Patterns
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/programming_development/general/embedded_systems_controllers">Controllers and embedded systems
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/programming_development/general/debugging">Debugging
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/programming_development/general/web_development">Development for Web
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/programming_development/general/games_programming">Games Programming
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/programming_development/general/fuzzy_genetic">Fuzzy, Genetic
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/programming_development/general/object_oriented">Object oriented
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/programming_development/general/neural_networks">Neural Networks
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/programming_development/general/unix_development">Unix development
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/programming_development/general/windows_development">Windows development
+                      </a>
+                                    </li>
+                                </ul>
+
+                                <li>
+                                    <a href="/ebooks/programming_development/old_languages">Older langs (Basic, Fortran ...)
+                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/programming_development/assembler">Assembler
+                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/programming_development/c">C </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/programming_development/cpp_c_plus_plus">C++/C#
+                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/programming_development/java">Java </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/programming_development/dotnet">.NET </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/programming_development/delphi">Delphi </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/programming_development/vb_visual_basic">Visual Basic
+                    </a>
+                                </li>
+
+                                <li>
+                                    <a style="font-weight: bold" href="/ebooks/programming_development/html_css_js_javascript">HTML, CSS, Javascript
+                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/programming_development/php">PHP </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/programming_development/xml">XML </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/programming_development/database_sql">Databases and SQL
+                    </a>
+                                </li>
+                            </ul>
+
+                            <li>
+                                <a href="/ebooks/graphics_drawing_design">Drawing, Painting and Design
+                  </a>
+                            </li>
+
+                            <li>
+                                <a href="/ebooks/history_military">History / Military </a>
+                            </li>
+
+                            <li>
+                                <a href="/ebooks/economics_finances">Economics and finances
+                  </a>
+                            </li>
+
+                            <li class="dropdown open">
+                                <a href="/ebooks/eLearning_book">eLearning [books] </a>
+                            </li>
+
+                            <ul class="collapsed" style="display: none">
+                                <li>
+                                    <a href="/ebooks/eLearning_book/hobbies_Leisure_time_guides">Hobbies &amp; Leisure time
+                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/eLearning_book/information_technologies">IT (Information Technologies)
+                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/eLearning_book/languages">Languages </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/eLearning_book/medicine">Medicine </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/eLearning_book/Others">Others </a>
+                                </li>
+                            </ul>
+
+                            <li>
+                                <a href="/ebooks/encyclopedia_dictionary">Encyclopedia, Dictionary
+                  </a>
+                            </li>
+
+                            <li class="dropdown open">
+                                <a href="/ebooks/engeneering_technology">Engineering and Technology
+                  </a>
+                            </li>
+
+                            <ul class="collapsed" style="display: none">
+                                <li>
+                                    <a href="/ebooks/engeneering_technology/communication">Communication
+                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/engeneering_technology/electronics">Electronics
+                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/engeneering_technology/wireless">Wireless
+                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/engeneering_technology/audio_video_tv">Audio, Video, TV
+                    </a>
+                                </li>
+                            </ul>
+
+                            <li>
+                                <a href="/ebooks/gambling">Gambling </a>
+                            </li>
+
+                            <li>
+                                <a href="/ebooks/games">Games related </a>
+                            </li>
+
+                            <li>
+                                <a href="/ebooks/hardware">Hardware </a>
+                            </li>
+
+                            <li>
+                                <a href="/ebooks/large_ebook_collection">Large book collections
+                  </a>
+                            </li>
+
+                            <li>
+                                <a href="/ebooks/martial_arts">Martial Arts </a>
+                            </li>
+
+                            <li class="dropdown open">
+                                <a href="/ebooks/music">Music related </a>
+                            </li>
+
+                            <ul class="collapsed" style="display: none">
+                                <li class="dropdown open">
+                                    <a href="/ebooks/music/print">+Printed Music </a>
+                                </li>
+
+                                <ul class="collapsed" style="display: none">
+                                    <li>
+                                        <a href="/ebooks/music/print/scores_classic">Scores Classic
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/music/print/scores_modern">Scores Modern
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/music/print/shets_tabs">Songsheets &amp; Tabs
+                      </a>
+                                    </li>
+                                </ul>
+                            </ul>
+
+                            <li>
+                                <a href="/ebooks/novels">Novels </a>
+                            </li>
+
+                            <li class="dropdown open">
+                                <a href="/ebooks/personality">Personality </a>
+                            </li>
+
+                            <ul class="collapsed" style="display: none">
+                                <li>
+                                    <a href="/ebooks/personality/family_friendhip">Family and Friendship
+                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/personality/health_healthcare_fitness">Healthcare, Fitness
+                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/personality/partner_relations_sex">Relationships, Sex
+                    </a>
+                                </li>
+                            </ul>
+
+                            <li>
+                                <a href="/ebooks/Photo_related">Photo/Cinema related </a>
+                            </li>
+
+                            <li>
+                                <a href="/ebooks/Poetry">Poetry </a>
+                            </li>
+
+                            <li>
+                                <a href="/ebooks/Politics_Sociology">Politics, Sociology </a>
+                            </li>
+
+                            <li class="dropdown open">
+                                <a href="/ebooks/science_books">Science </a>
+                            </li>
+
+                            <ul class="collapsed" style="display: none">
+                                <li>
+                                    <a href="/ebooks/science_books/math">Mathematics </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/science_books/physics">Physics </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/science_books/chemistry">Chemistry </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/science_books/biology_genetics">Biology and Genetics
+                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/science_books/medicine">Medicine </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/science_books/astronomy_cosmology">Astronomy and Cosmology
+                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/science_books/dsp_digital_signal_processing">DSP
+                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/science_books/cryptography">Cryptography
+                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/science_books/philosophy">Philosophy </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/science_books/psychology_behavior">Psychology and Behavior
+                    </a>
+                                </li>
+                            </ul>
+
+                            <li class="dropdown open">
+                                <a href="/ebooks/security_info">Security related </a>
+                            </li>
+
+                            <ul class="collapsed" style="display: none">
+                                <li>
+                                    <a href="/ebooks/security_info/hacking_hackers">Hackers and Hacking
+                    </a>
+                                </li>
+                            </ul>
+
+                            <li class="dropdown open">
+                                <a href="/ebooks/software">Software related </a>
+                            </li>
+
+                            <ul class="collapsed" style="display: none">
+                                <li>
+                                    <a href="/ebooks/software/windows_software">Windows Software
+                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/software/unix_software">Unix Software </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/software/mac_software">Mac Software </a>
+                                </li>
+                            </ul>
+
+                            <li>
+                                <a href="/ebooks/sports">Sports </a>
+                            </li>
+
+                            <li class="dropdown open">
+                                <a href="/ebooks/religion">Religion related </a>
+                            </li>
+
+                            <ul class="collapsed" style="display: none">
+                                <li>
+                                    <a href="/ebooks/religion/esoteric_magic">Esoteric, Magic
+                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/religion/east">East </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/religion/west">West </a>
+                                </li>
+                            </ul>
+
+                            <li>
+                                <a href="/ebooks/travel_guides">Travel Guides </a>
+                            </li>
+
+                            <li>
+                                <a href="/ebooks/others">Others </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="datepicker hasDatepicker" id="dp1567327154558">
+                        <div class="ui-datepicker-inline ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" style="display: block;">
+                            <div class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all">
+                                <a class="ui-datepicker-prev ui-corner-all" data-handler="prev" data-event="click" title="Prev"><span class="ui-icon ui-icon-circle-triangle-w"
+                      >Prev</span
+                    ></a
+                  >
+                  <a
+                    class="ui-datepicker-next ui-corner-all ui-state-disabled"
+                    title="Next"
+                    ><span class="ui-icon ui-icon-circle-triangle-e"
+                      >Next</span
+                    ></a
+                  >
+                  <div class="ui-datepicker-title">
+                    <span class="ui-datepicker-month">September</span
+                    >&nbsp;<span class="ui-datepicker-year">2019</span>
+                  </div>
+                </div>
+                <table class="ui-datepicker-calendar">
+                  <thead>
+                    <tr>
+                      <th scope="col" class="ui-datepicker-week-end">
+                        <span title="Sunday">Su</span>
+                      </th>
+                      <th scope="col"><span title="Monday">Mo</span></th>
+                      <th scope="col"><span title="Tuesday">Tu</span></th>
+                      <th scope="col"><span title="Wednesday">We</span></th>
+                      <th scope="col"><span title="Thursday">Th</span></th>
+                      <th scope="col"><span title="Friday">Fr</span></th>
+                      <th scope="col" class="ui-datepicker-week-end">
+                        <span title="Saturday">Sa</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td
+                        class=" ui-datepicker-week-end ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"
+                        data-handler="selectDay"
+                        data-event="click"
+                        data-month="8"
+                        data-year="2019"
+                      >
+                        <a
+                          class="ui-state-default ui-state-highlight ui-state-active ui-state-hover"
+                          href="#"
+                          >1</a
+                        >
+                      </td>
+                      <td
+                        class=" ui-datepicker-unselectable ui-state-disabled "
+                      >
+                        <span class="ui-state-default">2</span>
+                      </td>
+                      <td
+                        class=" ui-datepicker-unselectable ui-state-disabled "
+                      >
+                        <span class="ui-state-default">3</span>
+                      </td>
+                      <td
+                        class=" ui-datepicker-unselectable ui-state-disabled "
+                      >
+                        <span class="ui-state-default">4</span>
+                      </td>
+                      <td
+                        class=" ui-datepicker-unselectable ui-state-disabled "
+                      >
+                        <span class="ui-state-default">5</span>
+                      </td>
+                      <td
+                        class=" ui-datepicker-unselectable ui-state-disabled "
+                      >
+                        <span class="ui-state-default">6</span>
+                      </td>
+                      <td
+                        class=" ui-datepicker-week-end ui-datepicker-unselectable ui-state-disabled "
+                      >
+                        <span class="ui-state-default">7</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class=" ui-datepicker-week-end ui-datepicker-unselectable ui-state-disabled "
+                      >
+                        <span class="ui-state-default">8</span>
+                      </td>
+                      <td
+                        class=" ui-datepicker-unselectable ui-state-disabled "
+                      >
+                        <span class="ui-state-default">9</span>
+                      </td>
+                      <td
+                        class=" ui-datepicker-unselectable ui-state-disabled "
+                      >
+                        <span class="ui-state-default">10</span>
+                      </td>
+                      <td
+                        class=" ui-datepicker-unselectable ui-state-disabled "
+                      >
+                        <span class="ui-state-default">11</span>
+                      </td>
+                      <td
+                        class=" ui-datepicker-unselectable ui-state-disabled "
+                      >
+                        <span class="ui-state-default">12</span>
+                      </td>
+                      <td
+                        class=" ui-datepicker-unselectable ui-state-disabled "
+                      >
+                        <span class="ui-state-default">13</span>
+                      </td>
+                      <td
+                        class=" ui-datepicker-week-end ui-datepicker-unselectable ui-state-disabled "
+                      >
+                        <span class="ui-state-default">14</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class=" ui-datepicker-week-end ui-datepicker-unselectable ui-state-disabled "
+                      >
+                        <span class="ui-state-default">15</span>
+                      </td>
+                      <td
+                        class=" ui-datepicker-unselectable ui-state-disabled "
+                      >
+                        <span class="ui-state-default">16</span>
+                      </td>
+                      <td
+                        class=" ui-datepicker-unselectable ui-state-disabled "
+                      >
+                        <span class="ui-state-default">17</span>
+                      </td>
+                      <td
+                        class=" ui-datepicker-unselectable ui-state-disabled "
+                      >
+                        <span class="ui-state-default">18</span>
+                      </td>
+                      <td
+                        class=" ui-datepicker-unselectable ui-state-disabled "
+                      >
+                        <span class="ui-state-default">19</span>
+                      </td>
+                      <td
+                        class=" ui-datepicker-unselectable ui-state-disabled "
+                      >
+                        <span class="ui-state-default">20</span>
+                      </td>
+                      <td
+                        class=" ui-datepicker-week-end ui-datepicker-unselectable ui-state-disabled "
+                      >
+                        <span class="ui-state-default">21</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class=" ui-datepicker-week-end ui-datepicker-unselectable ui-state-disabled "
+                      >
+                        <span class="ui-state-default">22</span>
+                      </td>
+                      <td
+                        class=" ui-datepicker-unselectable ui-state-disabled "
+                      >
+                        <span class="ui-state-default">23</span>
+                      </td>
+                      <td
+                        class=" ui-datepicker-unselectable ui-state-disabled "
+                      >
+                        <span class="ui-state-default">24</span>
+                      </td>
+                      <td
+                        class=" ui-datepicker-unselectable ui-state-disabled "
+                      >
+                        <span class="ui-state-default">25</span>
+                      </td>
+                      <td
+                        class=" ui-datepicker-unselectable ui-state-disabled "
+                      >
+                        <span class="ui-state-default">26</span>
+                      </td>
+                      <td
+                        class=" ui-datepicker-unselectable ui-state-disabled "
+                      >
+                        <span class="ui-state-default">27</span>
+                      </td>
+                      <td
+                        class=" ui-datepicker-week-end ui-datepicker-unselectable ui-state-disabled "
+                      >
+                        <span class="ui-state-default">28</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class=" ui-datepicker-week-end ui-datepicker-unselectable ui-state-disabled "
+                      >
+                        <span class="ui-state-default">29</span>
+                      </td>
+                      <td
+                        class=" ui-datepicker-unselectable ui-state-disabled "
+                      >
+                        <span class="ui-state-default">30</span>
+                      </td>
+                      <td
+                        class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled"
+                      >
+                        &nbsp;
+                      </td>
+                      <td
+                        class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled"
+                      >
+                        &nbsp;
+                      </td>
+                      <td
+                        class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled"
+                      >
+                        &nbsp;
+                      </td>
+                      <td
+                        class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled"
+                      >
+                        &nbsp;
+                      </td>
+                      <td
+                        class=" ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled"
+                      >
+                        &nbsp;
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12" style="margin-top: 1em">
+            <a target="_blank" href="https://www.facebook.com/AvaxHomeTrue/"
+              ><img
+                class="img-responsive"
+                src="/media/images/fbpage.png"
+                width="233"
+                height="120"
+            /></a>
+                            </div>
+
+                            <div class="col-lg-12 banner-links">
+                                <a href="https://freewallet.org/id/888870a3" target="_blank" rel="noopener noreferrer"><img class="img-responsive" src="https://pixhost.icu/avaxhome/4f/8f/00558f4f.png" width="100%" height="100%" alt="Crypto Donation https://freewallet.org/id/888870a3" /></a>
+                                <br /><br />
+                                <b>WE RECOMMEND TO VISIT:</b>
+                                <br /><br />
+                                <a href="https://vered.tv/" target="_blank" rel="noopener noreferrer">Vered TV</a
+            >
+            <br /><br />
+            <a href="http://avax.news" target="_blank" rel="noopener noreferrer"
+              >AvaxNews</a
+            >
+            <br /><br />
+            <a
+              href="http://www.miliwoman.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Military Women</a
+            >
+            <br /><br />
+            <a
+              href="https://comix.top"
+              target="_blank"
+              rel="noopener noreferrer"
+              >ONLY Comic Books
+            </a>
+                                <br /><br />
+                                <a href="https://vejr.xyz" target="_blank" rel="noopener noreferrer">Vejret i Danmark</a
+            >
+            <br /><br />
+            <a
+              href="https://moridim-mirrors.xyz"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Moridim Mirrors</a
+            >
+            <br /><br />
+          </div>
+          <div class="col-lg-12"></div>
+          <div class="col-lg-12">
+            <div id="left2"></div>
+          </div>
+        </div>
+        <div class="col-lg-9 col-md-9">
+          <div class="row">
+            <div style="padding-top: 20px" class="hidden-xs hidden-sm"></div>
+
+            <form class="" action="/search" method="get">
+              <div class="col-sm-10 col-xs-8">
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                      <span class="glyphicon glyphicon-search"></span>
+                    </div>
+                    <input
+                      type="text"
+                      name="q"
+                      class="form-control input-search"
+                      id="search"
+                      placeholder="Search this site"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-2 col-xs-4">
+                <div class="form-group">
+                  <button class="form-control search-button" id="search">
+                    Search
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="row visible-md visible-lg">
+            <div class="col-md-12">
+              <ul class="main-menu">
+                <li>
+                  <a href="/"><span>Home</span></a>
+                                </li>
+
+                                <li>
+                                    <a class="active" href="/ebooks"><span>eBooks &amp; eLearning</span></a
+                  >
+                </li>
+
+                <li>
+                  <a href="/music"><span>Music</span></a>
+                                </li>
+
+                                <li>
+                                    <a href="/video"><span>Video</span></a>
+                                </li>
+
+                                <li>
+                                    <a href="/tvseries"><span><b>TV Series</b></span></a
+                  >
+                </li>
+
+                <li>
+                  <a href="/magazines"><span>Magazines</span></a>
+                                </li>
+
+                                <li>
+                                    <a href="/software"><span>Software</span></a>
+                                </li>
+
+                                <li>
+                                    <a href="/comics"><span>Comics</span></a>
+                                </li>
+
+                                <li>
+                                    <a href="/newspapers"><span>Newspapers</span></a>
+                                </li>
+
+                                <li>
+                                    <a href="/games"><span>Games</span></a>
+                                </li>
+
+                                <li>
+                                    <a href="/graphics"><span>Graphics</span></a>
+                                </li>
+
+                                <li>
+                                    <a href="/girls"><span><b>Girls</b></span></a
+                  >
+                </li>
+
+                <li>
+                  <a href="/hraphile"><span>Vinyl &amp; HR</span></a>
+                                </li>
+
+                                <li>
+                                    <a href="/audiobooks"><span><b>Audiobooks</b></span></a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row hidden-lg hidden-md">
+            <div class="col-sm-12">
+              <div class="subcategories-button subcategories-open">
+                <span>Subcategories</span>
+              </div>
+              <div class="subcategories">
+                <ul>
+                  <li>
+                    <a href="/ebooks/eLearning">eLearning [VIDEO] </a>
+                                </li>
+
+                                <li class="dropdown open">
+                                    <a>Language </a>
+                                </li>
+
+                                <ul class="collapsed" style="display: none">
+                                    <li>
+                                        <a href="/ebooks/language/english">Lang: English </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/language/russian">Lang: Russian </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/language/spanish">Lang: Spanish </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/language/german">Lang: German </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/language/french">Lang: French </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/language/italian">Lang: Italian </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/language/polish">Lang: Polish </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/language/Chinese">Lang: Chinese </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/language/turkish">Lang: Turkish </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/language/japanese">Lang: Japanese </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/language/others">Lang: Others </a>
+                                    </li>
+                                </ul>
+
+                                <li class="dropdown open">
+                                    <a>Skill Level </a>
+                                </li>
+
+                                <ul class="collapsed" style="display: none">
+                                    <li>
+                                        <a href="/ebooks/level/children">Children / Kids </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/level/newbies_beginners">Beginners, Newbies
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/level/skillful_professional">Skillful / Professionals
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/level/academic">Academic </a>
+                                    </li>
+                                </ul>
+
+                                <li class="dropdown open">
+                                    <a href="/ebooks/Mobile_eBooks_Readers">Mobile eBooks Readers
+                    </a>
+                                </li>
+
+                                <ul class="collapsed" style="display: none">
+                                    <li>
+                                        <a href="/ebooks/Mobile_eBooks_Readers/ipad_iphone_epub">iPad / iPhone (ePub)
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/Mobile_eBooks_Readers/kindle_azw3">Kindle - AZW3
+                      </a>
+                                    </li>
+                                </ul>
+
+                                <li>
+                                    <a href="/ebooks/animals">Animals related </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/architecture">Architecture </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/artbook">Artbooks </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/audiobook">Audiobooks </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/biography">Biographies </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/business_job">Business, Job </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/cooking_diets">Cooking and Diets </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/cultures_languages">Cultures / Languages
+                    </a>
+                                </li>
+
+                                <li class="dropdown open">
+                                    <a style="font-weight: bold" href="/ebooks/programming_development">Development / Programming
+                    </a>
+                                </li>
+
+                                <ul class="collapsed">
+                                    <li class="dropdown open">
+                                        <a href="/ebooks/programming_development/general">General
+                      </a>
+                                    </li>
+
+                                    <ul class="collapsed" style="display: none">
+                                        <li>
+                                            <a href="/ebooks/programming_development/general/algorithms_patterns">Algorithms and Patterns
+                        </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="/ebooks/programming_development/general/embedded_systems_controllers">Controllers and embedded systems
+                        </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="/ebooks/programming_development/general/debugging">Debugging
+                        </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="/ebooks/programming_development/general/web_development">Development for Web
+                        </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="/ebooks/programming_development/general/games_programming">Games Programming
+                        </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="/ebooks/programming_development/general/fuzzy_genetic">Fuzzy, Genetic
+                        </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="/ebooks/programming_development/general/object_oriented">Object oriented
+                        </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="/ebooks/programming_development/general/neural_networks">Neural Networks
+                        </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="/ebooks/programming_development/general/unix_development">Unix development
+                        </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="/ebooks/programming_development/general/windows_development">Windows development
+                        </a>
+                                        </li>
+                                    </ul>
+
+                                    <li>
+                                        <a href="/ebooks/programming_development/old_languages">Older langs (Basic, Fortran ...)
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/programming_development/assembler">Assembler
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/programming_development/c">C </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/programming_development/cpp_c_plus_plus">C++/C#
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/programming_development/java">Java </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/programming_development/dotnet">.NET </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/programming_development/delphi">Delphi
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/programming_development/vb_visual_basic">Visual Basic
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a style="font-weight: bold" href="/ebooks/programming_development/html_css_js_javascript">HTML, CSS, Javascript
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/programming_development/php">PHP </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/programming_development/xml">XML </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/programming_development/database_sql">Databases and SQL
+                      </a>
+                                    </li>
+                                </ul>
+
+                                <li>
+                                    <a href="/ebooks/graphics_drawing_design">Drawing, Painting and Design
+                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/history_military">History / Military </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/economics_finances">Economics and finances
+                    </a>
+                                </li>
+
+                                <li class="dropdown open">
+                                    <a href="/ebooks/eLearning_book">eLearning [books] </a>
+                                </li>
+
+                                <ul class="collapsed" style="display: none">
+                                    <li>
+                                        <a href="/ebooks/eLearning_book/hobbies_Leisure_time_guides">Hobbies &amp; Leisure time
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/eLearning_book/information_technologies">IT (Information Technologies)
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/eLearning_book/languages">Languages </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/eLearning_book/medicine">Medicine </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/eLearning_book/Others">Others </a>
+                                    </li>
+                                </ul>
+
+                                <li>
+                                    <a href="/ebooks/encyclopedia_dictionary">Encyclopedia, Dictionary
+                    </a>
+                                </li>
+
+                                <li class="dropdown open">
+                                    <a href="/ebooks/engeneering_technology">Engineering and Technology
+                    </a>
+                                </li>
+
+                                <ul class="collapsed" style="display: none">
+                                    <li>
+                                        <a href="/ebooks/engeneering_technology/communication">Communication
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/engeneering_technology/electronics">Electronics
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/engeneering_technology/wireless">Wireless
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/engeneering_technology/audio_video_tv">Audio, Video, TV
+                      </a>
+                                    </li>
+                                </ul>
+
+                                <li>
+                                    <a href="/ebooks/gambling">Gambling </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/games">Games related </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/hardware">Hardware </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/large_ebook_collection">Large book collections
+                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/martial_arts">Martial Arts </a>
+                                </li>
+
+                                <li class="dropdown open">
+                                    <a href="/ebooks/music">Music related </a>
+                                </li>
+
+                                <ul class="collapsed" style="display: none">
+                                    <li class="dropdown open">
+                                        <a href="/ebooks/music/print">+Printed Music </a>
+                                    </li>
+
+                                    <ul class="collapsed" style="display: none">
+                                        <li>
+                                            <a href="/ebooks/music/print/scores_classic">Scores Classic
+                        </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="/ebooks/music/print/scores_modern">Scores Modern
+                        </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="/ebooks/music/print/shets_tabs">Songsheets &amp; Tabs
+                        </a>
+                                        </li>
+                                    </ul>
+                                </ul>
+
+                                <li>
+                                    <a href="/ebooks/novels">Novels </a>
+                                </li>
+
+                                <li class="dropdown open">
+                                    <a href="/ebooks/personality">Personality </a>
+                                </li>
+
+                                <ul class="collapsed" style="display: none">
+                                    <li>
+                                        <a href="/ebooks/personality/family_friendhip">Family and Friendship
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/personality/health_healthcare_fitness">Healthcare, Fitness
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/personality/partner_relations_sex">Relationships, Sex
+                      </a>
+                                    </li>
+                                </ul>
+
+                                <li>
+                                    <a href="/ebooks/Photo_related">Photo/Cinema related </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/Poetry">Poetry </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/Politics_Sociology">Politics, Sociology
+                    </a>
+                                </li>
+
+                                <li class="dropdown open">
+                                    <a href="/ebooks/science_books">Science </a>
+                                </li>
+
+                                <ul class="collapsed" style="display: none">
+                                    <li>
+                                        <a href="/ebooks/science_books/math">Mathematics </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/science_books/physics">Physics </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/science_books/chemistry">Chemistry </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/science_books/biology_genetics">Biology and Genetics
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/science_books/medicine">Medicine </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/science_books/astronomy_cosmology">Astronomy and Cosmology
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/science_books/dsp_digital_signal_processing">DSP
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/science_books/cryptography">Cryptography
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/science_books/philosophy">Philosophy </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/science_books/psychology_behavior">Psychology and Behavior
+                      </a>
+                                    </li>
+                                </ul>
+
+                                <li class="dropdown open">
+                                    <a href="/ebooks/security_info">Security related </a>
+                                </li>
+
+                                <ul class="collapsed" style="display: none">
+                                    <li>
+                                        <a href="/ebooks/security_info/hacking_hackers">Hackers and Hacking
+                      </a>
+                                    </li>
+                                </ul>
+
+                                <li class="dropdown open">
+                                    <a href="/ebooks/software">Software related </a>
+                                </li>
+
+                                <ul class="collapsed" style="display: none">
+                                    <li>
+                                        <a href="/ebooks/software/windows_software">Windows Software
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/software/unix_software">Unix Software
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/software/mac_software">Mac Software </a>
+                                    </li>
+                                </ul>
+
+                                <li>
+                                    <a href="/ebooks/sports">Sports </a>
+                                </li>
+
+                                <li class="dropdown open">
+                                    <a href="/ebooks/religion">Religion related </a>
+                                </li>
+
+                                <ul class="collapsed" style="display: none">
+                                    <li>
+                                        <a href="/ebooks/religion/esoteric_magic">Esoteric, Magic
+                      </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/religion/east">East </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/ebooks/religion/west">West </a>
+                                    </li>
+                                </ul>
+
+                                <li>
+                                    <a href="/ebooks/travel_guides">Travel Guides </a>
+                                </li>
+
+                                <li>
+                                    <a href="/ebooks/others">Others </a>
+                                </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" id="top1">
+                        <div class="col-md-12 hidden-sm hidden-xs text-center"></div>
+                    </div>
+                    <div class="row" id="top2">
+                        <div class="col-md-12 text-center"></div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <ol class="breadcrumb">
+                            <li><a href="/">Home</a></li>
+
+                            <li>
+                                <a href="/ebooks">eBooks &amp; eLearning</a>
+                            </li>
+
+                            <li>
+                                <a href="/ebooks/programming_development">Development / Programming</a
+                >
+              </li>
+
+              <li>
+                <a href="/ebooks/programming_development/html_css_js_javascript"
+                  >HTML, CSS, Javascript</a
+                >
+              </li>
+            </ol>
+          </div>
+
+          <div class="article">
+            <div class="line"></div>
+          </div>
+
+          <div class="col-md-12">
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active">
+                <a href="/ebooks/programming_development/html_css_js_javascript"
+                  >Latest</a
+                >
+              </li>
+              <li role="presentation" id="link_best">
+                <a
+                  href="#"
+                  onclick="$('#nav_best').show(); $('#link_best').tab('show'); return false;"
+                  >Best</a
+                >
+              </li>
+            </ul>
+
+            <ul class="nav nav-pills" style="display: none" id="nav_best">
+              <li role="presentation">
+                <a href="/best/last24h/ebooks/">Last 24 hours</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="/best/week/ebooks/">Last week</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="/best/month/ebooks/">Last month</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="/best/archive/ebooks/">Archive</a>
+                            </li>
+                            </ul>
+                    </div>
+
+                    <div class="col-md-12 article">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h1>
+                                    <a href="/ebooks/Mastering_IOT.html" class="title-link">Mastering IOT: Build modern IoT solutions that secure and
+                    monitor your IoT infrastructure</a
+                  >
+                </h1>
+
+                <div
+                  class="author visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                >
+                  <strong>Posted By:</strong> <a href="/blogs/First1">First1</a>
+                            </div>
+
+                            <div class="post-date visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block">
+                                <strong>Date:</strong> 1 Sep 2019 07:30:29
+                            </div>
+
+                            <div class="visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"></div>
+
+                            <div class="text">
+                                <div class="text-center">
+                                    <a href="/ebooks/Mastering_IOT.html"><img class="img-responsive" src="https://pixhost.icu/avaxhome/22/9b/006b9b22_medium.jpg" alt="Mastering IOT: Build modern IoT solutions that secure and monitor your IoT infrastructure" width="243" height="300" /></a>
+                                </div>
+
+                                <br />
+                                <div class="text-center">
+                                    <b>Mastering IOT: Build modern IoT solutions that secure and
+                      monitor your IoT infrastructure by Colin Dow, Perry Lea</b
+                    ><br />English | May 20th, 2019 | ISBN: 1838645438 | 782
+                    pages | EPUB | 97.96 MB
+                  </div>
+                  <br />Leverage the full potential of IoT with the combination
+                  of Raspberry Pi 3 and Python and architect a complete IoT
+                  system that is the best fit for your organization
+                </div>
+
+                <div></div>
+              </div>
+            </div>
+            <div class="row">
+              <div style="text-align: right">
+                <a class="details" href="/ebooks/Mastering_IOT.html">Details</a>
+              </div>
+            </div>
+            <div class="line"></div>
+          </div>
+
+          <div class="col-md-12 article">
+            <div class="row">
+              <div class="col-lg-12">
+                <h1>
+                  <a href="/ebooks/148420266XX.html" class="title-link"
+                    >Practical Google Analytics and Google Tag Manager for
+                    Developers</a
+                  >
+                </h1>
+
+                <div
+                  class="author visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                >
+                  <strong>Posted By:</strong>
+                  <a href="/blogs/AvaxGenius">AvaxGenius</a>
+                </div>
+
+                <div
+                  class="post-date visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                >
+                  <strong>Date:</strong> 30 Aug 2019 09:03:41
+                </div>
+
+                <div
+                  class="visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                ></div>
+
+                <div class="text">
+                  <div class="text-center">
+                    <div class="text-center">
+                      <a href="/ebooks/148420266XX.html"
+                        ><img
+                          class="img-responsive"
+                          src="https://pixhost.icu/avaxhome/2c/85/006b852c_medium.jpg"
+                          alt="Practical Google Analytics and Google Tag Manager for Developers"
+                          width="210"
+                          height="300"
+                      /></a>
+                    </div>
+
+                    <br /><b
+                      >Practical Google Analytics and Google Tag Manager for
+                      Developers by Jonathan Weber</b
+                    ><br />English | PDF,EPUB | 2015 | 277 Pages | ISBN :
+                    148420266X | 8.05 MB
+                  </div>
+                  <br />Whether you’re a marketer with development skills or a
+                  full-on web developer/analyst, Practical Google Analytics and
+                  Google Tag Manager for Developers shows you how to implement
+                  Google Analytics using Google Tag Manager to jumpstart your
+                  web analytics measurement.
+                </div>
+
+                <div>
+                  <span class="label label-info"
+                    ><a href="/ebooks/facet/Google/">Google</a></span
+                  >
+
+                  <span class="label label-info"
+                    ><a href="/ebooks/facet/Google%20Analytics/"
+                      >Google Analytics</a
+                    ></span
+                  >
+
+                  <span class="label label-info"
+                    ><a href="/ebooks/facet/Google%20Tag%20Manager/"
+                      >Google Tag Manager</a
+                    ></span
+                  >
+
+                  <span class="label label-info"
+                    ><a href="/ebooks/facet/Developers/">Developers</a></span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div style="text-align: right">
+                <a class="details" href="/ebooks/148420266XX.html">Details</a>
+              </div>
+            </div>
+            <div class="line"></div>
+          </div>
+
+          <div class="col-md-12 article">
+            <div class="row">
+              <div class="col-lg-12">
+                <h1>
+                  <a href="/ebooks/1789345391.html" class="title-link"
+                    >Server Side development with Node.js and Koa.js Quick Start
+                    Guide</a
+                  >
+                </h1>
+
+                <div
+                  class="author visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                >
+                  <strong>Posted By:</strong> <a href="/blogs/hill0">hill0</a>
+                </div>
+
+                <div
+                  class="post-date visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                >
+                  <strong>Date:</strong> 30 Aug 2019 08:06:23
+                </div>
+
+                <div
+                  class="visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                ></div>
+
+                <div class="text">
+                  <div class="text-center">
+                    <a href="/ebooks/1789345391.html"
+                      ><img
+                        class="img-responsive"
+                        src="https://pixhost.icu/avaxhome/92/84/006b8492_medium.jpg"
+                        alt="Server Side development with Node.js and Koa.js Quick Start Guide"
+                        width="243"
+                        height="300"
+                    /></a>
+                  </div>
+
+                  <br />
+                  <div class="text-center">
+                    <b
+                      >Server Side development with Node.js and Koa.js Quick
+                      Start Guide: <br />Build robust and scalable web
+                      applications with modern JavaScript techniques<br />by
+                      Olayinka Omole</b
+                    ><br />English | 2018 | ISBN: 1789345391 | 132 Pages | EPUB
+                    | 2.24 MB
+                  </div>
+                </div>
+
+                <div></div>
+              </div>
+            </div>
+            <div class="row">
+              <div style="text-align: right">
+                <a class="details" href="/ebooks/1789345391.html">Details</a>
+              </div>
+            </div>
+            <div class="line"></div>
+          </div>
+
+          <div class="col-md-12 article">
+            <div class="row">
+              <div class="col-lg-12">
+                <h1>
+                  <a
+                    href="/ebooks/how-to-create-a-template-while-using-html-css-technologies.html"
+                    class="title-link"
+                    >How to Create a Template while using HTML &amp; CSS
+                    Technologies</a
+                  >
+                </h1>
+
+                <div
+                  class="author visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                >
+                  <strong>Posted By:</strong> <a href="/blogs/Sigha">Sigha</a>
+                </div>
+
+                <div
+                  class="post-date visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                >
+                  <strong>Date:</strong> 29 Aug 2019 16:48:35
+                </div>
+
+                <div
+                  class="visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                ></div>
+
+                <div class="text">
+                  <div class="text-center">
+                    <a
+                      href="/ebooks/how-to-create-a-template-while-using-html-css-technologies.html"
+                      ><img
+                        class="img-responsive"
+                        src="https://pixhost.icu/avaxhome/00/7b/006b7b00_medium.jpg"
+                        alt="How to Create a Template while using HTML &amp; CSS Technologies"
+                        width="450"
+                        height="253"
+                    /></a>
+                  </div>
+
+                  <br />
+                  <div class="text-center">
+                    <b
+                      >How to Create a Template while using HTML &amp; CSS
+                      Technologies</b
+                    ><br />.MP4 | Video: 1280x720, 30 fps(r) | Audio: AAC, 48000
+                    Hz, 2ch | 1.41 GB<br />Duration: 2.5 hours | Genre:
+                    eLearning | Language: English<br /><br />Step by Step How to
+                    Create a Template while using HTML &amp; CSS Technologies
+                    for Beginner to Expert
+                  </div>
+                </div>
+
+                <div>
+                  <span class="label label-info"
+                    ><a href="/ebooks/facet/HTML/">HTML</a></span
+                  >
+
+                  <span class="label label-info"
+                    ><a href="/ebooks/facet/CSS/">CSS</a></span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div style="text-align: right">
+                <a
+                  class="details"
+                  href="/ebooks/how-to-create-a-template-while-using-html-css-technologies.html"
+                  >Details</a
+                >
+              </div>
+            </div>
+            <div class="line"></div>
+          </div>
+
+          <div class="col-md-12 article">
+            <div class="row">
+              <div class="col-lg-12">
+                <h1>
+                  <a
+                    href="/ebooks/javascript-for-beginners-fastest-way-ever.html"
+                    class="title-link"
+                    >JavaScript for Beginners (Fastest way ever)</a
+                  >
+                </h1>
+
+                <div
+                  class="author visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                >
+                  <strong>Posted By:</strong> <a href="/blogs/Sigha">Sigha</a>
+                </div>
+
+                <div
+                  class="post-date visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                >
+                  <strong>Date:</strong> 29 Aug 2019 16:15:32
+                </div>
+
+                <div
+                  class="visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                ></div>
+
+                <div class="text">
+                  <div class="text-center">
+                    <a
+                      href="/ebooks/javascript-for-beginners-fastest-way-ever.html"
+                      ><img
+                        class="img-responsive"
+                        src="https://pixhost.icu/avaxhome/78/7a/006b7a78_medium.jpg"
+                        alt="JavaScript for Beginners (Fastest way ever)"
+                        width="450"
+                        height="253"
+                    /></a>
+                  </div>
+
+                  <br />
+                  <div class="text-center">
+                    <b>JavaScript for Beginners (Fastest way ever)</b><br />.MP4 | Video: 1280x720, 30 fps(r) | Audio: AAC, 48000 Hz, 2ch | 300 MB<br />Duration: 1 hours | Genre: eLearning | Language: English <br /><br
+                                    />with this course you will learn all the essentials about building your web Apps (Fast Way)
+                                </div>
+                            </div>
+
+                            <div>
+                                <span class="label label-info"><a href="/ebooks/facet/JavaScript/">JavaScript</a></span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div style="text-align: right">
+                <a
+                  class="details"
+                  href="/ebooks/javascript-for-beginners-fastest-way-ever.html"
+                  >Details</a
+                >
+              </div>
+            </div>
+            <div class="line"></div>
+          </div>
+
+          <div class="col-md-12 article">
+            <div class="row">
+              <div class="col-lg-12">
+                <h1>
+                  <a href="/ebooks/naag36449.html" class="title-link"
+                    >Node.js for Beginners: Build a Mini Game Project from
+                    Scratch using Node and Socket</a
+                  >
+                </h1>
+
+                <div
+                  class="author visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                >
+                  <strong>Posted By:</strong> <a href="/blogs/naag">naag</a>
+                </div>
+
+                <div
+                  class="post-date visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                >
+                  <strong>Date:</strong> 29 Aug 2019 14:24:34
+                </div>
+
+                <div
+                  class="visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                ></div>
+
+                <div class="text">
+                  <div class="text-center">
+                    <a href="/ebooks/naag36449.html"
+                      ><img
+                        class="img-responsive"
+                        src="https://pixhost.icu/avaxhome/9f/79/006b799f_medium.png"
+                        alt="Node.js for Beginners: Build a Mini Game Project from Scratch using Node and Socket"
+                        width="242"
+                        height="300"
+                    /></a>
+                  </div>
+
+                  <br />
+                  <div class="text-center">
+                    <b
+                      >Node.js for Beginners: Build a Mini Game Project from
+                      Scratch using Node and Socket</b
+                    ><br />MP4 | Video: AVC 1280x720 | Audio: AAC 44KHz 2ch |
+                    Duration: 2.5 Hours | 1.34 GB<br /><i
+                      >Genre: eLearning | Language: English</i
+                    >
+                  </div>
+                </div>
+
+                <div></div>
+              </div>
+            </div>
+            <div class="row">
+              <div style="text-align: right">
+                <a class="details" href="/ebooks/naag36449.html">Details</a>
+              </div>
+            </div>
+            <div class="line"></div>
+          </div>
+
+          <div class="col-md-12 article">
+            <div class="row">
+              <div class="col-lg-12">
+                <h1>
+                  <a href="/ebooks/naag36445.html" class="title-link"
+                    >TypeScript: Getting Started</a
+                  >
+                </h1>
+
+                <div
+                  class="author visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                >
+                  <strong>Posted By:</strong> <a href="/blogs/naag">naag</a>
+                </div>
+
+                <div
+                  class="post-date visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                >
+                  <strong>Date:</strong> 29 Aug 2019 03:14:03
+                </div>
+
+                <div
+                  class="visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                ></div>
+
+                <div class="text">
+                  <div class="text-center">
+                    <a href="/ebooks/naag36445.html"
+                      ><img
+                        class="img-responsive"
+                        src="https://pixhost.icu/avaxhome/60/73/006b7360_medium.png"
+                        alt="TypeScript: Getting Started"
+                        width="450"
+                        height="253"
+                    /></a>
+                  </div>
+
+                  <br />
+                  <div class="text-center">
+                    <b>TypeScript: Getting Started</b><br />MP4 | Video: AVC
+                    1280x720 | Audio: AAC 44KHz 2ch | Duration: 3 Hours | 289
+                    MB<br /><i>Genre: eLearning | Language: English</i>
+                  </div>
+                </div>
+
+                <div></div>
+              </div>
+            </div>
+            <div class="row">
+              <div style="text-align: right">
+                <a class="details" href="/ebooks/naag36445.html">Details</a>
+              </div>
+            </div>
+            <div class="line"></div>
+          </div>
+
+          <div class="col-md-12 article">
+            <div class="row">
+              <div class="col-lg-12">
+                <h1>
+                  <a href="/ebooks/naag36417.html" class="title-link"
+                    >No-SQL Visitor Comments for your Site with JavaScript</a
+                  >
+                </h1>
+
+                <div
+                  class="author visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                >
+                  <strong>Posted By:</strong> <a href="/blogs/naag">naag</a>
+                </div>
+
+                <div
+                  class="post-date visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                >
+                  <strong>Date:</strong> 28 Aug 2019 02:39:54
+                </div>
+
+                <div
+                  class="visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                ></div>
+
+                <div class="text">
+                  <div class="text-center">
+                    <a href="/ebooks/naag36417.html"
+                      ><img
+                        class="img-responsive"
+                        src="https://pixhost.icu/avaxhome/75/65/006b6575_medium.jpg"
+                        alt="No-SQL Visitor Comments for your Site with JavaScript"
+                        width="450"
+                        height="253"
+                    /></a>
+                  </div>
+
+                  <br />
+                  <div class="text-center">
+                    <b>No-SQL Visitor Comments for your Site with JavaScript</b
+                    ><br />MP4 | Video: AVC 1280x720 | Audio: AAC 44KHz 2ch |
+                    Duration: 1 Hours | Lec: 7 | 505 MB<br /><i
+                      >Genre: eLearning | Language: English</i
+                    >
+                  </div>
+                </div>
+
+                <div></div>
+              </div>
+            </div>
+            <div class="row">
+              <div style="text-align: right">
+                <a class="details" href="/ebooks/naag36417.html">Details</a>
+              </div>
+            </div>
+            <div class="line"></div>
+          </div>
+
+          <div class="col-md-12 article">
+            <div class="row">
+              <div class="col-lg-12">
+                <h1>
+                  <a href="/ebooks/1484224779X.html" class="title-link"
+                    >Building Web Applications with Visual Studio 2017: Using
+                    .NET Core and Modern JavaScript Frameworks (Repost)</a
+                  >
+                </h1>
+
+                <div
+                  class="author visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                >
+                  <strong>Posted By:</strong>
+                  <a href="/blogs/AvaxGenius">AvaxGenius</a>
+                </div>
+
+                <div
+                  class="post-date visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                >
+                  <strong>Date:</strong> 27 Aug 2019 23:54:42
+                </div>
+
+                <div
+                  class="visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                ></div>
+
+                <div class="text">
+                  <div class="text-center">
+                    <div class="text-center">
+                      <a href="/ebooks/1484224779X.html"
+                        ><img
+                          class="img-responsive"
+                          src="https://pixhost.icu/avaxhome/1a/00/0047001a_medium.jpg"
+                          alt="Building Web Applications with Visual Studio 2017: Using .NET Core and Modern JavaScript Frameworks (Repost)"
+                          width="207"
+                          height="300"
+                      /></a>
+                    </div>
+
+                    <br /><b
+                      >Building Web Applications with Visual Studio 2017: Using
+                      .NET Core and Modern JavaScript Frameworks By Philip
+                      Japikse, Kevin Grossnicklaus, Ben Dewey</b
+                    ><br />English | PDF | 2017 | 418 Pages | ISBN : 1484224779
+                    | 8.5 MB
+                  </div>
+                  <br />Learn how to build web applications from three Microsoft
+                  MVPs. After building the data application layer using Entity
+                  Framework Core and a RESTful service using ASP.NET Core, you
+                  will then build the client side web application three ways:
+                  first, using ASP.NET Core, then using Angular 2, and, finally,
+                  using React. You will be able to compare and contrast these UI
+                  frameworks and select the best one for your needs.
+                </div>
+
+                <div></div>
+              </div>
+            </div>
+            <div class="row">
+              <div style="text-align: right">
+                <a class="details" href="/ebooks/1484224779X.html">Details</a>
+              </div>
+            </div>
+            <div class="line"></div>
+          </div>
+
+          <div class="col-md-12 article">
+            <div class="row">
+              <div class="col-lg-12">
+                <h1>
+                  <a
+                    href="/ebooks/basic-html-and-css-for-beginners.html"
+                    class="title-link"
+                    >Basic HTML &amp; CSS for beginners (Build One Project)</a
+                  >
+                </h1>
+
+                <div
+                  class="author visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                >
+                  <strong>Posted By:</strong> <a href="/blogs/Sigha">Sigha</a>
+                </div>
+
+                <div
+                  class="post-date visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                >
+                  <strong>Date:</strong> 27 Aug 2019 14:18:19
+                </div>
+
+                <div
+                  class="visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                ></div>
+
+                <div class="text">
+                  <div class="text-center">
+                    <a href="/ebooks/basic-html-and-css-for-beginners.html"
+                      ><img
+                        class="img-responsive"
+                        src="https://pixhost.icu/avaxhome/ef/5f/006b5fef_medium.jpg"
+                        alt="Basic HTML &amp; CSS for beginners (Build One Project)"
+                        width="450"
+                        height="253"
+                    /></a>
+                  </div>
+
+                  <br />
+                  <div class="text-center">
+                    <b>Basic HTML &amp; CSS for beginners (Build One Project)</b
+                    ><br />.MP4 | Video: 1280x720, 30 fps(r) | Audio: AAC, 48000
+                    Hz, 2ch | 1.17 GB<br />Duration: 7 hours | Genre: eLearning
+                    | Language: English<br /><br />Build your programming career
+                    with the ultimate basic HTML5 &amp; CSS course!
+                  </div>
+                </div>
+
+                <div></div>
+              </div>
+            </div>
+            <div class="row">
+              <div style="text-align: right">
+                <a
+                  class="details"
+                  href="/ebooks/basic-html-and-css-for-beginners.html"
+                  >Details</a
+                >
+              </div>
+            </div>
+            <div class="line"></div>
+          </div>
+
+          <div class="col-md-12 article">
+            <div class="row">
+              <div class="col-lg-12">
+                <h1>
+                  <a
+                    href="/ebooks/css-mastering-animations.html"
+                    class="title-link"
+                    >CSS - MASTERING ANIMATIONS</a
+                  >
+                </h1>
+
+                <div
+                  class="author visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                >
+                  <strong>Posted By:</strong> <a href="/blogs/Sigha">Sigha</a>
+                </div>
+
+                <div
+                  class="post-date visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                >
+                  <strong>Date:</strong> 27 Aug 2019 13:55:57
+                </div>
+
+                <div
+                  class="visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                ></div>
+
+                <div class="text">
+                  <div class="text-center">
+                    <a href="/ebooks/css-mastering-animations.html"
+                      ><img
+                        class="img-responsive"
+                        src="https://pixhost.icu/avaxhome/be/5f/006b5fbe_medium.jpg"
+                        alt="CSS - MASTERING ANIMATIONS"
+                        width="450"
+                        height="253"
+                    /></a>
+                  </div>
+
+                  <br />
+                  <div class="text-center">
+                    <b>CSS - MASTERING ANIMATIONS</b><br />.MP4 | Video:
+                    1280x720, 30 fps(r) | Audio: AAC, 44100 Hz, 2ch | 567 MB<br />Duration:
+                    1.5 hours | Genre: eLearning | Language: English
+                  </div>
+                  <br />Make your web page alive with css animations &amp;
+                  transitions and take your web design skills to the next level.
+                </div>
+
+                <div></div>
+              </div>
+            </div>
+            <div class="row">
+              <div style="text-align: right">
+                <a class="details" href="/ebooks/css-mastering-animations.html"
+                  >Details</a
+                >
+              </div>
+            </div>
+            <div class="line"></div>
+          </div>
+
+          <div class="col-md-12 article">
+            <div class="row">
+              <div class="col-lg-12">
+                <h1>
+                  <a
+                    href="/ebooks/oyun-programlamann-temelleri-html-5-ve-js.html"
+                    class="title-link"
+                    >Oyun Programlamanın Temelleri (HTML 5 ve JS)</a
+                  >
+                </h1>
+
+                <div
+                  class="author visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                >
+                  <strong>Posted By:</strong> <a href="/blogs/Sigha">Sigha</a>
+                </div>
+
+                <div
+                  class="post-date visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                >
+                  <strong>Date:</strong> 27 Aug 2019 09:09:41
+                </div>
+
+                <div
+                  class="visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                ></div>
+
+                <div class="text">
+                  <div class="text-center">
+                    <a
+                      href="/ebooks/oyun-programlamann-temelleri-html-5-ve-js.html"
+                      ><img
+                        class="img-responsive"
+                        src="https://pixhost.icu/avaxhome/7d/5d/006b5d7d_medium.jpg"
+                        alt="Oyun Programlamanın Temelleri (HTML 5 ve JS)"
+                        width="450"
+                        height="253"
+                    /></a>
+                  </div>
+
+                  <br />
+                  <div class="text-center">
+                    <b>Oyun Programlamanın Temelleri (HTML 5 ve JS)</b
+                    ><br />.MP4 | Video: 1280x720, 30 fps(r) | Audio: AAC, 44100
+                    Hz, 2ch | 1.97 GB<br />Duration: 5.5 hours | Genre:
+                    eLearning | Language: Türkçe<br /><br />Arkanoid, Yılan ve
+                    Mayın Tarlası Oyunları ile Oyun Programlama Mantığını
+                    Öğrenelim
+                  </div>
+                </div>
+
+                <div></div>
+              </div>
+            </div>
+            <div class="row">
+              <div style="text-align: right">
+                <a
+                  class="details"
+                  href="/ebooks/oyun-programlamann-temelleri-html-5-ve-js.html"
+                  >Details</a
+                >
+              </div>
+            </div>
+            <div class="line"></div>
+          </div>
+
+          <div class="col-md-12 article">
+            <div class="row">
+              <div class="col-lg-12">
+                <h1>
+                  <a href="/ebooks/naag36392.html" class="title-link"
+                    >Create a No-SQL Hit Counter for your Website with
+                    JavaScript</a
+                  >
+                </h1>
+
+                <div
+                  class="author visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                >
+                  <strong>Posted By:</strong> <a href="/blogs/naag">naag</a>
+                </div>
+
+                <div
+                  class="post-date visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                >
+                  <strong>Date:</strong> 27 Aug 2019 02:54:13
+                </div>
+
+                <div
+                  class="visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                ></div>
+
+                <div class="text">
+                  <div class="text-center">
+                    <a href="/ebooks/naag36392.html"
+                      ><img
+                        class="img-responsive"
+                        src="https://pixhost.icu/avaxhome/25/59/006b5925_medium.jpg"
+                        alt="Create a No-SQL Hit Counter for your Website with JavaScript"
+                        width="450"
+                        height="253"
+                    /></a>
+                  </div>
+
+                  <br />
+                  <div class="text-center">
+                    <b
+                      >Create a No-SQL Hit Counter for your Website with
+                      JavaScript</b
+                    ><br />MP4 | Video: AVC 1280x720 | Audio: AAC 44KHz 2ch |
+                    Duration: 1.5 Hours | Lec: 9 | 889 MB<br /><i
+                      >Genre: eLearning | Language: English</i
+                    >
+                  </div>
+                </div>
+
+                <div></div>
+              </div>
+            </div>
+            <div class="row">
+              <div style="text-align: right">
+                <a class="details" href="/ebooks/naag36392.html">Details</a>
+              </div>
+            </div>
+            <div class="line"></div>
+          </div>
+
+          <div class="col-md-12 article">
+            <div class="row">
+              <div class="col-lg-12">
+                <h1>
+                  <a href="/ebooks/3319742493X.html" class="title-link"
+                    >Low Level X Window Programming: An Introduction by Examples
+                    (Repost)</a
+                  >
+                </h1>
+
+                <div
+                  class="author visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                >
+                  <strong>Posted By:</strong>
+                  <a href="/blogs/AvaxGenius">AvaxGenius</a>
+                </div>
+
+                <div
+                  class="post-date visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                >
+                  <strong>Date:</strong> 26 Aug 2019 23:31:29
+                </div>
+
+                <div
+                  class="visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                ></div>
+
+                <div class="text">
+                  <div class="text-center">
+                    <div class="text-center">
+                      <a href="/ebooks/3319742493X.html"
+                        ><img
+                          class="img-responsive"
+                          src="https://pixhost.icu/avaxhome/4b/fc/0052fc4b_medium.jpg"
+                          alt="Low Level X Window Programming: An Introduction by Examples (Repost)"
+                          width="197"
+                          height="300"
+                      /></a>
+                    </div>
+
+                    <br /><b
+                      >Low Level X Window Programming: An Introduction by
+                      Examples By Ross J. Maloney</b
+                    ><br />English | PDF,EPUB | 2017 | 270 Pages| ISBN :
+                    3319742493 | 18 MB
+                  </div>
+                  <br />This is the missing X Window book. While others have
+                  shown what the X Window system has available, this book shows
+                  how to convert this potential into working tools to fulfil
+                  your visualisation needs. It is of the show-me class of books.
+                </div>
+
+                <div></div>
+              </div>
+            </div>
+            <div class="row">
+              <div style="text-align: right">
+                <a class="details" href="/ebooks/3319742493X.html">Details</a>
+              </div>
+            </div>
+            <div class="line"></div>
+          </div>
+
+          <div class="col-md-12 article">
+            <div class="row">
+              <div class="col-lg-12">
+                <h1>
+                  <a
+                    href="/ebooks/learning-css-as-fast-as-possible-with-real-project-u.html"
+                    class="title-link"
+                    >Learning modern css and html with car gallery project</a
+                  >
+                </h1>
+
+                <div
+                  class="author visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                >
+                  <strong>Posted By:</strong> <a href="/blogs/Sigha">Sigha</a>
+                </div>
+
+                <div
+                  class="post-date visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                >
+                  <strong>Date:</strong> 26 Aug 2019 21:16:27
+                </div>
+
+                <div
+                  class="visible-lg-inline-block visible-md-inline-block visible-sm-block visible-xs-block"
+                ></div>
+
+                <div class="text">
+                  <div class="text-center">
+                    <a
+                      href="/ebooks/learning-css-as-fast-as-possible-with-real-project-u.html"
+                      ><img
+                        class="img-responsive"
+                        src="https://pixhost.icu/avaxhome/62/56/006b5662_medium.jpg"
+                        alt="Learning modern css and html with car gallery project"
+                        width="450"
+                        height="253"
+                    /></a>
+                  </div>
+
+                  <br />
+                  <div class="text-center">
+                    <b>Learning modern css and html with car gallery project</b
+                    ><br />.MP4 | Video: 1280x720, 30 fps(r) | Audio: AAC, 44100
+                    Hz, 2ch | 1.07 GB<br />Duration: 2.5 hours | Genre:
+                    eLearning | Language: English<br /><br />car gallery project
+                  </div>
+                </div>
+
+                <div></div>
+              </div>
+            </div>
+            <div class="row">
+              <div style="text-align: right">
+                <a
+                  class="details"
+                  href="/ebooks/learning-css-as-fast-as-possible-with-real-project-u.html"
+                  >Details</a
+                >
+              </div>
+            </div>
+            <div class="line"></div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="pagination text-center">
+              <ul>
+                <li>
+                  <a
+                    class="active"
+                    href="/ebooks/programming_development/html_css_js_javascript/pages/1"
+                    >1</a
+                  >
+                </li>
+
+                <li>
+                  <a
+                    href="/ebooks/programming_development/html_css_js_javascript/pages/2"
+                    >2</a
+                  >
+                </li>
+
+                <li>
+                  <a
+                    href="/ebooks/programming_development/html_css_js_javascript/pages/3"
+                    >3</a
+                  >
+                </li>
+
+                <li>
+                  <a
+                    href="/ebooks/programming_development/html_css_js_javascript/pages/2"
+                    class="next"
+                    >Next</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div
+            class="col-md-12 hidden-sm hidden-xs"
+            style="margin-bottom: 1em"
+          ></div>
+
+          <div class="clearfix"></div>
+          <div class="col-md-4 hidden-lg hidden-md">
+            <div
+              class="datepicker text-left-xs calendar-bottom hasDatepicker"
+              id="dp1567327154559"
+            >
+              <div class="title">Publication archive</div>
+              <div
+                class="ui-datepicker-inline ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"
+                style="display: block;"
+              >
+                <div
+                  class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all"
+                >
+                  <a
+                    class="ui-datepicker-prev ui-corner-all"
+                    data-handler="prev"
+                    data-event="click"
+                    title="Prev"
+                    ><span class="ui-icon ui-icon-circle-triangle-w"
+                      >Prev</span
+                    ></a
+                  >
+                  <a
+                    class="ui-datepicker-next ui-corner-all ui-state-disabled"
+                    title="Next"
+                    ><span class="ui-icon ui-icon-circle-triangle-e"
+                      >Next</span
+                    ></a
+                  >
+                  <div class="ui-datepicker-title">
+                    <span class="ui-datepicker-month">September</span
+                    >&nbsp;<span class="ui-datepicker-year">2019</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="/media/js/bootstrap.min.js"></script>
+    <script src="/media/js/datepicker.min.js"></script>
+    <script src="/media/js/app.js"></script>
+    <script type="text/javascript">
+        $(".datepicker").datepicker({
+            // changeYear: true,
+            yearRange: "2005:",
+            maxDate: 0,
+            onSelect: function(d, ins) {
+                document.location.href =
+                    "/ebooks/programming_development/html_css_js_javascript" + "/" + d;
+            },
+            dateFormat: "yy/mm/dd",
+            defaultDate: "None"
+        });
+    </script>
+    <div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>
+
+    <script>
+        (function(d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter22032559 = new Ya.Metrika({
+                        id: 22032559,
+                        webvisor: true,
+                        clickmap: true,
+                        trackLinks: true,
+                        accurateTrackBounce: true
+                    });
+                } catch (e) {}
+            });
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function() {
+                    n.parentNode.insertBefore(s, n);
+                };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src =
+                (d.location.protocol == "https:" ? "https:" : "http:") +
+                "//mc.yandex.ru/metrika/watch.js";
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else {
+                f();
+            }
+        })(document, window, "yandex_metrika_callbacks");
+    </script>
+</body>
+
+</html>
